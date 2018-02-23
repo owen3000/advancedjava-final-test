@@ -1,4 +1,4 @@
-package prob01;
+package test;
 import java.util.Scanner;
 
 
@@ -13,8 +13,8 @@ public class Gugudan {
 		resultNumber = l * r;
 
 		int[] answerNumbers = randomizeAnswers();
-		int loc = randomize( 0, 8 ); 
-		answerNumbers[ loc ] = resultNumber; 
+		int loc = randomize( 0, 8 );
+		answerNumbers[ loc ] = resultNumber;
 		
 		System.out.println( l + " x " + r + " = ?" );
 		
@@ -35,11 +35,6 @@ public class Gugudan {
 		Scanner s = new Scanner( System.in );
 		//
 		//  이 부분에 적당한 코드를 작성합니다. 
-		
-		while(!s.hasNextInt()) {
-			s.nextLine();
-			System.out.println("정수로 다시 입력해주세요");
-		}
 		int i = s.nextInt();
 		System.out.println();
 		if(i == resultNumber) {
@@ -48,8 +43,7 @@ public class Gugudan {
 		else {
 			System.out.println("오답");
 		}
-
-		s.close();
+		//
 	}
 
 	private static int randomize( int lNum, int rNum ) {
@@ -68,10 +62,10 @@ public class Gugudan {
 		while( occupied < COUNT_ANSWER_NUMBER ) {
 			
 	        int random = ( int )( Math.random() * MAX_ANSWER_NUMBER ) + 1;
-	      
+	        
 	        boolean evaluted = false;
 	        for( int i = 0; i < occupied; i++ ) {
-	        	if( boardNumbers[i] == random || resultNumber == random ) {
+	        	if( boardNumbers[i] == random ) {
 	        		evaluted = true;
 	        		break;
 	        	}
@@ -80,7 +74,6 @@ public class Gugudan {
 	        if( !evaluted ) {
 	        	boardNumbers[ occupied++ ] = random;
 	        }
-	     
 		}
 		
         return boardNumbers;
