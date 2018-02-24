@@ -35,12 +35,17 @@ public class Gugudan {
 		Scanner s = new Scanner( System.in );
 		//
 		//  이 부분에 적당한 코드를 작성합니다. 
-		
-		while(!s.hasNextInt()) {
-			s.nextLine();
-			System.out.println("정수로 다시 입력해주세요");
+		int i = 0;
+		while(true) {
+			String temp = s.nextLine();
+			if(temp.matches("^\\d+$")) {
+				i = Integer.parseInt(temp);
+				break;
+			}
+			else {
+				System.out.println("숫자로 다시 입력해주세요. 입력하신 값: "+temp);
+			}
 		}
-		int i = s.nextInt();
 		System.out.println();
 		if(i == resultNumber) {
 			System.out.println("정답");
